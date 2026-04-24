@@ -17,5 +17,9 @@ const tweetSchema = new mongoose.Schema({
     ]
 },{timestamps:true});
 
+tweetSchema.virtual('contentWithEmail').get(function(){
+    return `${this.content} - ${this.Email}`;
+});
+
 const Tweet=mongoose.model('Tweet',tweetSchema);
 module.exports=Tweet;

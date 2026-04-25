@@ -3,29 +3,16 @@ const mongoose = require('mongoose');
 const tweetSchema = new mongoose.Schema({
     content:{
         type:String,
-        required:true
+        required:true,
+        max:[250,'Post cannot be more than 250 characters']
     },
-    Email:{
-        type:String
-    },
-    comments:[
-        {
-            //Use when using the
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Comment'
-        }
-    ]
+    hastages:[{
+        //there will be multiple hastags for a single tweets
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Hashtag'
+    }]
 },{timestamps:true});
 
-tweetSchema.virtual('contentWithEmail').get(function(){
-    return `${this.content} - ${this.Email}`;
-});
-
-tweetSchema.virtual('save').get(function(next){
-    console.log('Inside a Hook');
-    this.content=this.content+" Yo Bhai..Aap Hook mein hain";
-    next();
-})
 
 const Tweet=mongoose.model('Tweet',tweetSchema);
 module.exports=Tweet;

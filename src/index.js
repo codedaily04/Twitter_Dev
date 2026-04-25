@@ -10,23 +10,4 @@ app.listen(3000,async ()=>{
     console.log("Server is running on port 3000");
     await connect();
     console.log("Database connected successfully");
-    // const tweet= await Tweet.create({
-    //     content:"Tweet With TimeStamps",
-    //     Email:"2424@asdfs.com"
-    // });
-    // const tweets=await Tweet.find({Email:'2424@asdfs.com'});
-    // const tweets=await Tweet.findById('69eb1ca92ab1ecfb79442131');
-    // tweets.Email='YoYo@ok.com';
-    // await tweets.save();
-    // console.log(tweets);
-    // const tweet=await tweetRepo.update('69eb5f11aaa6874df681bdab',{content:'new Item Sir '});
-
-    
-    
-    // const comment= await Comment.create({content:'This is a comment'});
-    // tweet.comments.push(comment);
-    // await tweet.save();
-    const tweetRepo=new TweetRepository();
-    const tweet = await tweetRepo.getAll(1,2);
-    console.log(tweet[0].contentWithEmail);
 });

@@ -20,7 +20,7 @@ app.listen(3000,async ()=>{
     // console.log(response);
     let service=new TweetService();
     let tweet= await service.create({
-        content : 'is  #twitter working fine?'
+        content : '#GOOD fellas?'
      });
      console.log(tweet);
 });

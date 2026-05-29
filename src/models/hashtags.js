@@ -3,10 +3,11 @@ import mongoose from 'mongoose';
 const hashtagSchema=new mongoose.Schema({
     title:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     tweets:[{
-        //meaning that, there will be many tweets that bwlongs to a single hashtags
+        //meaning that, there will be many tweets that belongs to a single hashtags
         type:mongoose.Schema.Types.ObjectId,
         ref:'Tweet'
     }]

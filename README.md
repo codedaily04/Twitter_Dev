@@ -21,3 +21,5 @@
 - User Auth
 
 - Every Tweets might be having a hashtag
+- Changing the "Type in Package.json" to "type":"module", will the project into E.js Format
+- This is a different take on this project.

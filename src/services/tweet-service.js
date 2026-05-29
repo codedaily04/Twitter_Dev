@@ -1,5 +1,4 @@
-const {TweetRepository} = require('../repository/index');
-const {HashtagRepository} = require('../repository/index');
+import { TweetRepository, HashtagRepository } from '../repository/index.js';
 
 class TweetService{
     constructor(){
@@ -11,7 +10,7 @@ class TweetService{
     async create(data){
         const content=data.content;
         let tags=content.match(/#[a-zA-Z0-9_]+/g); //this regex extracts hashtags
-        tags=tags.map(tag=>tag.substring(1)); //removing the # from the tags
+        tags=tags.map(tag=>tag.substring(1).toLowerCase());//removing the # from the hashtags
         // console.log(tags);
         const tweet=await this.tweetRepository.create(data);
         // Here, now we will try to eliminate the already present hashtags
@@ -41,4 +40,4 @@ class TweetService{
 
 }
 
-module.exports=TweetService;
+export default TweetService;

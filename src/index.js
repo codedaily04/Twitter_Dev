@@ -1,12 +1,8 @@
-const express=require('express');
-const connect = require('./config/database');
-const app=express();
-const Comment=require('./models/comments');
-// const Tweet=require('./models/tweet');
+import express from 'express';
+import {connect} from './config/database.js';
+const app= express();
 
-const TweetRepository=require('./repository/tweet-repository');
-const HashtagRepository=require('./repository/hashtag-repository');
-const TweetService=require('./services/tweet-service');
+import TweetService from './services/tweet-service.js';
 
 app.listen(3000,async ()=>{
     console.log("Server is running on port 3000");
@@ -17,9 +13,14 @@ app.listen(3000,async ()=>{
     // console.log(response);
     // response=response.map(tag=>tag.title);
     // console.log(response);
+    // let service=new TweetService();
+    // let response=await service.create({
+    //     content:'Been to mountains , Enjoyed #New Life , Felt #good #Testing'
+    // });
+    // console.log(response);
     let service=new TweetService();
-    let response=await service.create({
-        content:'Been to mountains , Enjoyed #New Life , Felt #good #Testing'
-    });
-    console.log(response);
+    let tweet= await service.create({
+        content : 'is  #twitter working fine?'
+     });
+     console.log(tweet);
 });

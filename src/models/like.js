@@ -11,12 +11,12 @@ const LikeSchema = new mongoose.Schema({
         //and based on that enum, we can store the tweet id or comment id
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        refPath:'onModel'
+        refPath:'onModel',
     },
     user:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:'User'
+        ref:'User'//using this ref we connec the particular model to different other models
     }
 },{timestamps:true});
 

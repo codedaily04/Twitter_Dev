@@ -1,8 +1,14 @@
 import express from 'express';
 import {connect} from './config/database.js';
-const app= express();
+import bodyParser from 'body-parser';
 
-import TweetService from './services/tweet-service.js';
+import apiRoutes from './routes/index.js';
+
+const app= express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use('/api',apiRoutes);
+
 
 app.listen(3000,async ()=>{
     console.log("Server is running on port 3000");
@@ -18,9 +24,9 @@ app.listen(3000,async ()=>{
     //     content:'Been to mountains , Enjoyed #New Life , Felt #good #Testing'
     // });
     // console.log(response);
-    let service=new TweetService();
-    let tweet= await service.create({
-        content : '#GOOD fellas?'
-     });
-     console.log(tweet);
+    // let service=new TweetService();
+    // let tweet= await service.create({
+    //     content : '#GOOD fellas?'
+    //  });
+    //  console.log(tweet);
 });

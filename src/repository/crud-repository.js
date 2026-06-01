@@ -20,6 +20,16 @@ class CrudRepository{
         }
     }
 
+    async getall(){
+        try {
+            const result=await this.model.find({});
+            return result;
+        } catch (error) {
+            console.log("Something went wrong in Crud Repo");
+            throw error;  
+        }
+    }
+
     async get(id){
         try {
             const result=await this.model.findById(id);

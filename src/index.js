@@ -19,7 +19,7 @@ app.listen(3000,async ()=>{
     await connect();
     console.log("Database connected successfully");
    
-    const userRepo = new UserRepository();//creating user
+    // const userRepo = new UserRepository();//creating user
    
 });
 

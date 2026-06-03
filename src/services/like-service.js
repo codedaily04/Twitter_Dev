@@ -6,10 +6,10 @@ class LikeService{
         this.tweetRepository=new TweetRepository();
     }
     async toggleLike(modelid,modelType,userId){// /api/v1/likes/toggle?if=modelid&type=Tweet
-        if(modelType==='Tweet'){
+        if(modelType=='Tweet'){
             var likeable = await (await this.tweetRepository.get(modelid)).populate('likes');
             //here, we had to wrap it around await because this part this.tweetRepository.get(modelid) will return a promise and in promise, we don't have populate function to work with
-        }else if(modelType==='Comment'){
+        }else if(modelType=='Comment'){
             //TODO
         }else {
             throw new Error('Invalid model type');

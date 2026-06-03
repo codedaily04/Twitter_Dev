@@ -16,7 +16,7 @@ const LikeSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:'User'//using this ref we connec the particular model to different other models
+        ref:'User'//using this ref we connect the particular model to different other models
     }
 },{timestamps:true});
 

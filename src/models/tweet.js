@@ -9,7 +9,12 @@ const tweetSchema = new mongoose.Schema({
     likes:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Like'
-    }]
+    }],
+    //here we are keeping the comment array in tweet schema, so that we can render the top comment or comment count under tweets if we want to
+    comments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comment'   
+}]
 },{timestamps:true});
 
 

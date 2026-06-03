@@ -20,16 +20,19 @@ app.listen(3000,async ()=>{
     console.log("Database connected successfully");
    
     const userRepo = new UserRepository();//creating user
-    // const user=await userRepo.create({
+   
+});
+
+
+ // const user=await userRepo.create({
     //     email:'neha@gmail.com',
     //     password:'123456',
     //     name:'Neha'
     // });
     // console.log(user);
 
-    const tweetRepo = new TweetRepository();
-    const tweet=await tweetRepo.getall();
-    const user= await userRepo.getall();
-    const likeService=new LikeService();
-    await likeService.toggleLike(tweet[0]._id,'Tweet',user[0].id);
-});
+    // const tweetRepo = new TweetRepository();
+    // const tweet=await tweetRepo.getall();
+    // const user= await userRepo.getall();
+    // const likeService=new LikeService();
+    // await likeService.toggleLike(tweet[0]._id,'Tweet',user[0].id);

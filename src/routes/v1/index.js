@@ -12,7 +12,7 @@ router.get('/tweets/:id',getTweet);
 
 router.post('/likes/toggle',ToggleLike);
 
-router.post('/comments',createComment);
+router.post('/comments',authenticate,createComment);
 
 router.post('/signup',signup);
 

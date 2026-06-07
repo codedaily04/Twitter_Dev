@@ -1,19 +1,19 @@
 import passport from 'passport';
 
-export const authenticate=(req,res,next) =>{
-    passport.authenticate('jwt',{session:false},(err,user)=>{
-        if(err){
-            next(err);
+export const authenticate = (req, res, next) => {
+    passport.authenticate('jwt', { session: false }, (err, user, info) => { // ← add info here
+        if (err) {
+            return next(err);
         }
-        if(!user){
+        if (!user) {
             return res.status(401).json({
-                message:'Unauthorized',
-                success:false,
-                data:null,
-                error:info
+                message: 'Unauthorised access no token',
+                success: false,
+                data: null,
+                error: info // ← now info is defined
             });
         }
-        req.user=user;//feeding all the data this object req.user about user.
+        req.user = user;
         next();
-    })(req,res,next);
-}
+    })(req, res, next);
+};

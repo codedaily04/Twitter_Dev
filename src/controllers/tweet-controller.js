@@ -15,10 +15,13 @@ export const createTweet = async (req, res) => {
             });
         }
         try {
+            const payload={...req.body};
+            payload.image=req.file.location;
             const tweet = await tweetService.create({
                 content: req.body.content,
                 image: req.file ? req.file.location : null
             });
+            console.log(tweet);
             return res.status(201).json({
                 message: 'Tweet created successfully',
                 success: true,
